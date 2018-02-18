@@ -136,7 +136,7 @@ namespace BMP
         private void button4_Click(object sender, EventArgs e)
         {
 
-            int y = 6;
+            int y = 2;
             int s = 0;
             //for(int r = 1; r < y; r++)
             //{
@@ -147,7 +147,7 @@ namespace BMP
 
                         Color PixelColor = f_image.GetPixel(i, j);
                         int C_gray = (int)(PixelColor.R + PixelColor.G + PixelColor.B) / 3;
-                    // C_gray = 1 * C_gray ^ y * r;
+               //  C_gray = 1 * C_gray ^ y * r;
 
                     C_gray = 1 * C_gray ^ y;
                     image.SetPixel(i, j, Color.FromArgb(C_gray, C_gray, C_gray));
