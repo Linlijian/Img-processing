@@ -134,10 +134,11 @@ namespace BMP
 
         private void button4_Click(object sender, EventArgs e)
         {
+
             int y = 6;
             int s = 0;
-            if (y>=0.1 && y <= 30)
-            {
+            //for(int r = 1; r < y; r++)
+            //{
                 for (int i = 0; i < f_image.Width; i++)
                 {
                     for (int j = 0; j < f_image.Height; j++)
@@ -145,14 +146,15 @@ namespace BMP
 
                         Color PixelColor = f_image.GetPixel(i, j);
                         int C_gray = (int)(PixelColor.R + PixelColor.G + PixelColor.B) / 3;
-                        int ii = 5/2;
-                        //s = 1 * C_gray ^ y;
-                        s = C_gray ^ (1 / ii);
-                        image.SetPixel(i, j, Color.FromArgb(s, s, s));
-          
+                    // C_gray = 1 * C_gray ^ y * r;
+
+                    C_gray = 1 * C_gray ^ y;
+                    image.SetPixel(i, j, Color.FromArgb(C_gray, C_gray, C_gray));
+
                     }
                 }
-            }
+            //}
+
             label3.Text = s.ToString();
             pictureBox2.Image = image;
         }
@@ -164,6 +166,7 @@ namespace BMP
 
         private void button5_Click(object sender, EventArgs e)
         {
+            pictureBox2.Image = null;
             int y = 0;
             int b = 0;
             int d = 0;
