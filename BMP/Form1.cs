@@ -41,6 +41,36 @@ namespace BMP
             }
             image = new Bitmap(f_image.Width, f_image.Height);
 
+            
+            pictureBox1.Image = f_image;
+           // pictureBox2.Image = image;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            f_image.RotateFlip(RotateFlipType.Rotate90FlipXY);
+            pictureBox1.Image = f_image;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            f_image.RotateFlip(RotateFlipType.Rotate270FlipXY);
+            pictureBox1.Image = f_image;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             //threshold
             int avg = 0;
             int sum = 0;
@@ -73,7 +103,7 @@ namespace BMP
 
                     Color PixelColor = f_image.GetPixel(i, j);
                     int C_gray = (int)(PixelColor.R + PixelColor.G + PixelColor.B) / 3;
-                    if(C_gray >= tmp)
+                    if (C_gray >= tmp)
                     {
                         image.SetPixel(i, j, Color.FromArgb(255, 255, 255));
                     }
@@ -81,39 +111,10 @@ namespace BMP
                     {
                         image.SetPixel(i, j, Color.FromArgb(0, 0, 0));
                     }
-                    
+
                 }
             }
             textBox1.Text = tmp.ToString();
-            pictureBox1.Image = f_image;
-           // pictureBox2.Image = image;
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            f_image.RotateFlip(RotateFlipType.Rotate90FlipXY);
-            pictureBox1.Image = f_image;
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            f_image.RotateFlip(RotateFlipType.Rotate270FlipXY);
-            pictureBox1.Image = f_image;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
             pictureBox2.Image = image;
         }
 
